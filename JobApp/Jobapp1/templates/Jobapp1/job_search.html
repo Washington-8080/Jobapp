@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Search</title>
+</head>
+<body>
+    <h1>Search for Jobs</h1>
+    <form method="GET" action="{% url 'job_search' %}">
+        <input type="text" name="q" placeholder="Search for jobs...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Search Results:</h2>
+    <ul>
+        {% for job in results %}
+            <li>{{ job.title }} - {{ job.description }}</li>
+        {% empty %}
+            <li>No jobs found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

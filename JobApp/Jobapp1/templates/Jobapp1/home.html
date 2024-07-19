@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+            color: #212529;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            padding: 20px;
+            background-color: #343a40;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav button:hover {
+            background-color: #0056b3;
+        }
+
+        nav button a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav button a i {
+            margin-right: 10px;
+        }
+
+        /* Image Container Styles */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .image-container img {
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: auto;
+            width: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our JobApp Genius</h1>
+    </header>
+    <nav>
+        <button><a href="/register"><i class="fas fa-user-plus"></i> Register</a></button>
+        <button><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></button>
+    </nav>
+    <div class="image-container">
+        <img src="{% static 'images/job1.jpg' %}" alt="Job 1">
+        <img src="{% static 'images/job2.jpg' %}" alt="Job 2">
+        <img src="{% static 'images/job3.jpg' %}" alt="Job 3">
+    </div>
+    <footer>
+        <p>&copy; 2024 JobApp Genius. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

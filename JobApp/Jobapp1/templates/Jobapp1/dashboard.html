@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .user-info {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .user-info h2 {
+            margin-top: 0;
+        }
+        .actions {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .actions button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .actions button:hover {
+            background-color: #0056b3;
+        }
+        .actions button a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .actions button a i {
+            margin-right: 10px;
+        }
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .search-container input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .search-container button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+        .job-results {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .job-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .job-results ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Dashboard</h1>
+    </header>
+    <div class="dashboard">
+        <div class="user-info">
+            <h2>Welcome, {{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+            <p>Joined: {{ user.date_joined }}</p>
+            <!-- Add more user details as needed -->
+        </div>
+        <div class="actions">
+            <button><a href="/profile"><i class="fas fa-user-edit"></i> Edit Profile</a></button>
+            <button><a href="/settings"><i class="fas fa-cog"></i> Account Settings</a></button>
+            <button><a href="/activity"><i class="fas fa-history"></i> View Recent Activities</a></button>
+            <button><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></button>
+        </div>
+        <div class="search-container">
+            <form action="/search" method="GET">
+                <input type="text" name="q" placeholder="Search for jobs...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="job-results">
+            <h2>Job Search Results</h2>
+            <!-- Job search results will be dynamically loaded here -->
+            <div id="job-results-container">
+                <!-- Placeholder for dynamic loading -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
